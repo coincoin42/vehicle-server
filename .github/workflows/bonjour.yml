@@ -12,6 +12,7 @@ jobs:
         with:
           name : Setup Node
           node-version: 20.17.0
+      - run: npm ca
       - run: node --version
       - run: npm run build && node dist/index.js 
       - run: ls dist/
