@@ -4,14 +4,17 @@ on:
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
-    container:
-      image: ghcr.io/cicd-lectures/gitpod:latest
-      options: --user=root
+    
     steps:
-      - uses: actions/checkout@v4
-      - run: ls -l # Liste les fichier du répertoire courant
-      - run: sudo apt install cowsay
+      - uses: actions/checkout@v4  
+      - uses: juliangruber/read-file-action@v1
+        id: readfile
+        with:
+          path: ./README.md
+
+      - uses: Code-Hex/neo-cowsay-action@v1
+        with: 
+          message: echo "${{ steps.readfile.outputs.content }}"
       
-      - run: cat README.md | cowsay
       
 
