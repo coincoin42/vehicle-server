@@ -2,23 +2,21 @@ name: Bonjour
 on:
   - push
 jobs:
-  dire_bonjour:
+  checkout_build:
     runs-on: ubuntu-22.04
     
     steps:
       - uses: actions/checkout@v4  
       
-      - uses: juliangruber/read-file-action@v1
-        name: Read README.md
-        id: readfile
+      - uses: actions/setup-node@v4
         with:
-          path: ./README.md
+          name : Setup Node
+          node-version: 20.17.0
+      - run: node --version
+      - run: npm run build && node dist/index.js 
+      - run: ls dist/
 
-      - uses: Code-Hex/neo-cowsay-action@v1
-        with:
-          name: cat README.md with cowsay
-          message: echo "${{ steps.readfile.outputs.content }}"
-          cow: 'gopher'
+      
       
       
 
