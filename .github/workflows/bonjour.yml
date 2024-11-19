@@ -7,13 +7,16 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4  
+      
       - uses: juliangruber/read-file-action@v1
+        name: Read README.md
         id: readfile
         with:
           path: ./README.md
 
       - uses: Code-Hex/neo-cowsay-action@v1
-        with: 
+        with:
+          name: cat README.md with cowsay
           message: echo "${{ steps.readfile.outputs.content }}"
       
       
