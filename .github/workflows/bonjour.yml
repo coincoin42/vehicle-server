@@ -7,6 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: ls -l # Liste les fichier du répertoire courant
-      - run: cat README.md
+      - run: sudo apt install cowsay
+      - run: sudo apt install sl
+      - run: cat README.md | cowsay
+      - run: for i in a l f o
+             do
+                sl -${i} | lolcat
+             done
       
 
