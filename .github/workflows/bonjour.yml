@@ -12,7 +12,7 @@ jobs:
       - run: cat README.md | cowsay
       - run: for i in a l f o
              do
-                sl -${i} | lolcat
+                sl -${i}
              done
       
 
