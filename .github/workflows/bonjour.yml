@@ -18,6 +18,7 @@ jobs:
         with:
           name: cat README.md with cowsay
           message: echo "${{ steps.readfile.outputs.content }}"
+          cow: 'gopher'
       
       
 
