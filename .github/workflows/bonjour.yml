@@ -18,6 +18,7 @@ jobs:
       - run: npm run build && node dist/index.js 
       - run: ls dist/
       - run: npx eslint --fix ./src && npm run lint
+      - run: npm run test
 
 
       
