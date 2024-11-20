@@ -193,7 +193,6 @@
     "istanbul-reports": "^3.1.7",
     "jackspeak": "^3.4.3",
     "jake": "^10.9.2",
-    "jest": "^29.7.0",
     "jest-changed-files": "^29.7.0",
     "jest-circus": "^29.7.0",
     "jest-cli": "^29.7.0",
@@ -374,7 +373,6 @@
     "to-regex-range": "^5.0.1",
     "toidentifier": "^1.0.1",
     "ts-api-utils": "^1.4.0",
-    "ts-jest": "^29.2.5",
     "tweetnacl": "^0.14.5",
     "type-check": "^0.4.0",
     "type-detect": "^4.0.8",
@@ -408,9 +406,12 @@
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.9.0",
     "@types/pg": "^8.11.10",
     "eslint": "^9.15.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.15.0"
   },
@@ -419,7 +420,8 @@
     "start": "npm run build && node dist/index.js",
     "start-db": "docker container run -d --name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
     "stop-db": "docker container rm -f vehicle-database",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC"
