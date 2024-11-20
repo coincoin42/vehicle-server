@@ -1,8 +1,9 @@
 name: Bonjour
 on:
   - push
+  - pull_request
 jobs:
-  checkout_build:
+  ci:
     runs-on: ubuntu-22.04
     
     steps:
@@ -16,6 +17,7 @@ jobs:
       - run: node --version
       - run: npm run build && node dist/index.js 
       - run: ls dist/
+      
 
       
       
