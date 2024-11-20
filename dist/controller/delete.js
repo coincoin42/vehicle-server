@@ -6,7 +6,9 @@ class DeleteVehicleController {
         this.vehicleStore = vehicleStore;
     }
     async handle(req, res) {
-        res.status(500).send();
+        const id = parseInt(req.params.id);
+        await this.vehicleStore.deleteVehicle({ id: id });
+        res.status(204).send();
     }
 }
 exports.DeleteVehicleController = DeleteVehicleController;
