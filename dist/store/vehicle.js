@@ -26,7 +26,6 @@ class VehicleStore {
         if (result.rows.length > 1) {
             throw new Error("unexpected amount of rows returned");
         }
-        /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
         const vehicleRow = result.rows[0];
         return newVehicleFromRow(vehicleRow);
     }

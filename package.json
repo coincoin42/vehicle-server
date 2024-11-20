@@ -107,7 +107,6 @@
     "escalade": "^3.2.0",
     "escape-html": "^1.0.3",
     "escape-string-regexp": "^4.0.0",
-    "eslint": "^9.13.0",
     "eslint-scope": "^8.2.0",
     "eslint-visitor-keys": "^4.2.0",
     "espree": "^10.3.0",
@@ -381,7 +380,6 @@
     "type-detect": "^4.0.8",
     "type-fest": "^0.21.3",
     "type-is": "^2.0.0",
-    "typescript-eslint": "^8.12.2",
     "undici": "^5.28.4",
     "undici-types": "^6.19.8",
     "unpipe": "^1.0.0",
@@ -408,16 +406,20 @@
     "zip-stream": "^6.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "@types/pg": "^8.11.10",
-    "typescript": "^5.6.3"
+    "eslint": "^9.15.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0"
   },
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "start": "npm run build && node dist/index.js",
-    "start-db": "docker container run -d -name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
-    "stop-db": "docker container rm -f vehicle-database"
+    "start-db": "docker container run -d --name vehicle-database -e POSTGRES_USER=vehicle -e POSTGRES_PASSWORD=vehicle -e POSTGRES_DB=vehicle -p 5432:5432 postgis/postgis:16-3.4-alpine",
+    "stop-db": "docker container rm -f vehicle-database",
+    "lint": "eslint ./src"
   },
   "author": "",
   "license": "ISC"
