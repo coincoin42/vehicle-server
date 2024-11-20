@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/require-await, @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any
+*/
 
 import {expect, jest, test} from '@jest/globals';
 import { Pool } from 'pg';
@@ -26,27 +27,6 @@ jest.mock('../store/vehicle', (() => ({
     }
   })
 })));
-
-// Describe décrit un groupe logique de tests, ayant la même logique de mise en place et de nettoyage.
-describe('create vehicle controller', () => {
-    let controller: CreateVehicleController;
-    let store: VehicleStore;
-  
-    // Avant chaque test on réinitialise le store et le controller.
-    beforeEach(() => {
-      store =  new VehicleStore({} as Pool); // <- instance mockée!
-      controller = new CreateVehicleController(store);
-    });
-  
-    test('creates a valid vehicle', async () => {
-        
-      // Given (mise en place du test).
-  
-      // When (exécution de la méthode testée).
-  
-      // Then (validation des résultats.
-    });
-  });
 
   describe('create vehicle controller', () => {
     let controller: CreateVehicleController;
